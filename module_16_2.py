@@ -17,7 +17,7 @@ async def admin() -> dict:
 async def get_user(
         user_id: int = Path(gt=0,
                             le=100,
-                            discription="Enter User ID",
+                            description="Enter User ID",
                             example="1")) -> dict:
     return {"message": f"Вы вошли как пользователь № {user_id}"}
 
@@ -26,11 +26,11 @@ async def get_user(
 async def info_user(
     username: Annotated[str, Path(min_length=5,
                                   max_length=20,
-                                  discription="Enter username",
-                                  example="UrbanUser")],
-    age: Annotated[int, Path(gt=18,
+                                  description="Enter username",
+                                  example="Vasya")],
+    age: Annotated[int, Path(ge=18,
                              le=120,
-                             discription="Enter age",
+                             description="Enter age",
                              example="24")]) -> dict:
     return {"message": f"Информация о пользователе. Имя: {username}, Возраст: {age}"}
 

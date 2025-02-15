@@ -30,7 +30,7 @@ async def create_user(
 
 @app.put("/user/{user_id}/{username}/{age}")
 async def update_user(
-        user_id: Annotated[str, Path(gt=0,
+        user_id: Annotated[int, Path(gt=0,
                                 le=100,
                                 description="Enter User ID",
                                 example="1")],
@@ -47,7 +47,7 @@ async def update_user(
 
 @app.delete('/user/{user_id}')
 async def delete_user(
-        user_id: str = Path(gt=0,
+        user_id: int = Path(gt=0,
                             le=100,
                             description="Enter User ID",
                             example="1")) -> str:
